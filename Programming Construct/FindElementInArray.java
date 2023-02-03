@@ -21,13 +21,14 @@ class FindElement {
     // TODO: Implement this method
     static int findElement(int n, int[] arr, int x) 
     {
-            for(int i=0 ; i<n ; i++){
-                if(arr[i] == x){
-                    return i;
-                }
-                
-            }
-            return -1;
-
+        //iterate through the whole array to check at which index the number 'x' is present
+        for(int i=0 ; i<n ; i++)
+        {
+            if(arr[i] == x) //check value at each index of array and compare with 'x'
+            {
+                return i;  // return the index 
+            }   
+        }
+        return -1;  // return -1 if not persent (after loop is done iterating)
     }
 }
