@@ -13,23 +13,29 @@ class Capitalise
     }
 
     // TODO: Implement this method
-    static String capitalise(String str) 
+    static String capitalise(String str)
     {
+        //converting into character array
         char ch[] = str.toCharArray();
-        for(int i=0 ; i<str.length() ; i++)
+        
+        for(int i=0 ; i<ch.length ; i++)
+        {
+            // checks if the current character is the first character of a any word
+            if (i == 0 && ch[i] != ' ' || ch[i] != ' ' && ch[i - 1] == ' ') 
             {
-                if (i == 0 && ch[i] != ' ' || ch[i] != ' ' && ch[i - 1] == ' ') 
+                // If the first character we found is in lower-case
+                if (ch[i] >= 'a' && ch[i] <= 'z') 
                 {
- 
-                // If it is in lower-case
-                    if (ch[i] >= 'a' && ch[i] <= 'z') 
-                    {
-    
-                        // Convert into Upper-case
-                        ch[i] = (char)(ch[i] - 'a' + 'A');
-                    }
+                    // Convert in into Upper-case using below formula
+                    ch[i] = (char)(ch[i] - 'a' + 'A');
                 }
-            }     
+            }
+            // If apart from first character, Any other character is in the Upper-case
+            else if (ch[i] >= 'A' && ch[i] <= 'Z')
+ 
+                // Convert that into Lower-Case
+                ch[i] = (char)(ch[i] + 'a' - 'A');  
+        }     
         String captStr = new String(ch);
         return captStr;   
     }
