@@ -16,7 +16,11 @@ class PyramidPrinting {
 
     public static String getStars(int i)
     {
-        StringBuilder str = new StringBuilder();
+        //creating new variable os type stringbuilder so that we can later append on the same string, since string are..
+        //..immutable in java
+        StringBuilder starBuilder = new StringBuilder();
+
+        //edge case
         if(i==0)
         {
             System.out.println("error");
@@ -26,22 +30,29 @@ class PyramidPrinting {
         {
             if(j!=0)
             {
-                str.append(" ");
+                starBuilder.append(" ");
             }
-            str.append("*");
+            starBuilder.append("*");
         }
-        return str.toString();
+        //convert to string as expected in the return type of the function
+        return starBuilder.toString();
     }
 
     // TODO: Implement this method
     static String[] pyramidPrinting(int n) 
     {
-        String[] pyStars = new String[n];
+        //creating a string array with n elements (which will be number of stars in this case)
+        String[] pyramidStars = new String[n];
 
         for(int i=0; i<n ;i++)
         {
-            pyStars[i] = getStars(i + 1);
+            //eg: i=1
+            //output: *
+            //eg : i=2
+            //output: * *
+
+            pyramidStars[i] = getStars(i + 1);
         }
-        return pyStars;
+        return pyramidStars;
     } 
 }
